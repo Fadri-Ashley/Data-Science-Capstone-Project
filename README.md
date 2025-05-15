@@ -7,3 +7,4 @@ My Plan:
 4. Create design
 5. Implementation (Coding)
 6. Deployment
+7. Presentation
