@@ -1,101 +1,101 @@
-🧠 Obesity Level Prediction – Data Science Capstone Project
-Capstone project ini bertujuan untuk membangun sistem prediksi tingkat obesitas berdasarkan data pribadi dan kebiasaan hidup seseorang. Proyek ini dilakukan sebagai tugas akhir dari mata kuliah Bengkel Koding - Data Science di Universitas Dian Nuswantoro.
+# 🧠 Obesity Level Prediction – Data Science Capstone Project
 
-🔍 Tujuan Proyek
-Mengembangkan model klasifikasi machine learning untuk memprediksi tingkat obesitas (NObeyesdad) berdasarkan berbagai variabel seperti usia, tinggi badan, kebiasaan makan, dan aktivitas fisik, lalu mengimplementasikan model tersebut ke dalam aplikasi web interaktif menggunakan Flask.
+Capstone project ini bertujuan untuk membangun sistem prediksi tingkat obesitas berdasarkan data pribadi dan kebiasaan hidup seseorang. Proyek ini dilakukan sebagai tugas akhir dari mata kuliah **Bengkel Koding - Data Science** di Universitas Dian Nuswantoro.
 
-📌 Tahapan Proyek
-1. 🧠 Persiapan & Pembelajaran
+---
+
+## 🔍 Tujuan Proyek
+
+Mengembangkan model klasifikasi machine learning untuk memprediksi tingkat obesitas (NObeyesdad) berdasarkan berbagai variabel seperti usia, tinggi badan, kebiasaan makan, dan aktivitas fisik, lalu mengimplementasikan model tersebut ke dalam aplikasi web interaktif menggunakan **Flask**.
+
+---
+
+## 📌 Tahapan Proyek
+
+### 1. 🧠 *Persiapan & Pembelajaran*
+
 Sebelum memulai proyek, pastikan telah menguasai materi berikut:
 
-Python Dasar
+* **Python Dasar**
+* **Library Data Science**:
 
-Library Data Science:
+  * `Pandas`, `NumPy`, `Matplotlib`, `Seaborn`
+* **Statistik Dasar**:
 
-Pandas, NumPy, Matplotlib, Seaborn
+  * Distribusi, korelasi, outlier, regresi, dsb
+* **Exploratory Data Analysis (EDA)**
+* **Preprocessing Data**
+* **Machine Learning Klasifikasi**
+* **Evaluasi Model**:
 
-Statistik Dasar:
+  * Accuracy, Precision, Recall, F1-Score
+* **Pickle**: untuk menyimpan model
+* **Flask**: untuk membuat aplikasi web
+* **Obesity Dataset**: sebagai sumber data
 
-Distribusi, korelasi, outlier, regresi, dsb
+---
 
-Exploratory Data Analysis (EDA)
+### 2. 🛠️ *Pembuatan Model Machine Learning*
 
-Preprocessing Data
+* Lakukan EDA dan preprocessing data
+* Tangani missing value, duplikasi, outlier, dan data imbalance
+* Buat model klasifikasi (min. 3 algoritma)
+* Evaluasi model menggunakan metrik yang sesuai
+* Simpan model terbaik menggunakan `pickle`
 
-Machine Learning Klasifikasi
+---
 
-Evaluasi Model:
+### 3. 📐 *Analisis Kebutuhan Aplikasi Web (Flask)*
 
-Accuracy, Precision, Recall, F1-Score
+#### ✅ **Fitur Utama:**
 
-Pickle: untuk menyimpan model
+1. **Form Input Data**
 
-Flask: untuk membuat aplikasi web
+   * Gender, Age, Height, Weight
+   * family\_history\_with\_overweight, FAVC, FCVC, NCP
+   * CAEC, SMOKE, CH2O, SCC, FAF, TUE, CALC, MTRANS
+2. **Prediksi Hasil**
 
-Obesity Dataset: sebagai sumber data
+   * Prediksi tingkat obesitas berdasarkan input
+   * Confidence score (jika memungkinkan)
+3. **Tampilan UI**
 
-2. 🛠️ Pembuatan Model Machine Learning
-Lakukan EDA dan preprocessing data
+   * Judul aplikasi: *Obesity Level Predictor*
+   * Deskripsi proyek
+   * Hasil prediksi
+   * Visualisasi sederhana (misal: distribusi kelas obesitas)
 
-Tangani missing value, duplikasi, outlier, dan data imbalance
+---
 
-Buat model klasifikasi (min. 3 algoritma)
+### 4. 🎨 *Desain UI*
 
-Evaluasi model menggunakan metrik yang sesuai
+* Desain tampilan web menggunakan Figma
+* Pastikan layout mudah dipahami dan responsif
 
-Simpan model terbaik menggunakan pickle
+---
 
-3. 📐 Analisis Kebutuhan Aplikasi Web (Flask)
-✅ Fitur Utama:
-Form Input Data
+### 5. 💻 *Implementasi Aplikasi*
 
-Gender, Age, Height, Weight
+* Gunakan **Flask** untuk membangun aplikasi
+* Integrasikan form input dengan model `.pkl`
+* Tampilkan hasil prediksi dalam antarmuka web
 
-family_history_with_overweight, FAVC, FCVC, NCP
+---
 
-CAEC, SMOKE, CH2O, SCC, FAF, TUE, CALC, MTRANS
+### 6. 🚀 *Deployment*
 
-Prediksi Hasil
+* Deploy aplikasi ke platform **Render**
+* Buat akun, hubungkan GitHub repository, dan setting environment
 
-Prediksi tingkat obesitas berdasarkan input
+---
 
-Confidence score (jika memungkinkan)
+### 7. 🎤 *Presentasi Proyek*
 
-Tampilan UI
+* Siapkan slide presentasi
+* Pahami alur data, preprocessing, model, dan deployment
 
-Judul aplikasi: Obesity Level Predictor
+#### 📊 **Bobot Penilaian:**
 
-Deskripsi proyek
-
-Hasil prediksi
-
-Visualisasi sederhana (misal: distribusi kelas obesitas)
-
-4. 🎨 Desain UI
-Desain tampilan web menggunakan Figma
-
-Pastikan layout mudah dipahami dan responsif
-
-5. 💻 Implementasi Aplikasi
-Gunakan Flask untuk membangun aplikasi
-
-Integrasikan form input dengan model .pkl
-
-Tampilkan hasil prediksi dalam antarmuka web
-
-6. 🚀 Deployment
-Deploy aplikasi ke platform Render
-
-Buat akun, hubungkan GitHub repository, dan setting environment
-
-7. 🎤 Presentasi Proyek
-Siapkan slide presentasi
-
-Pahami alur data, preprocessing, model, dan deployment
-
-📊 Bobot Penilaian:
-💻 Coding: 50%
-
-❓ Tanya Jawab: 20%
-
-🌐 Model Deployment: 30%
+* 💻 Coding: **50%**
+* ❓ Tanya Jawab: **20%**
+* 🌐 Model Deployment: **30%**
