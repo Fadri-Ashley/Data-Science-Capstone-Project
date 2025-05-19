@@ -12,7 +12,7 @@ Mengembangkan model klasifikasi machine learning untuk memprediksi tingkat obesi
 
 ## 📌 Tahapan Proyek
 
-### 1. 🧠 *Persiapan & Pembelajaran*
+### 1. 🧠 *Persiapan & Pembelajaran* (I'm Here)
 
 Sebelum memulai proyek, pastikan telah menguasai materi berikut:
 
