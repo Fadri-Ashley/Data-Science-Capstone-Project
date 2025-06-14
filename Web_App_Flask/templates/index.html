@@ -3,186 +3,191 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Prediksi Tingkat Obesitas</title>
+    <title>Obesity Level Predictor</title>
     <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
       rel="stylesheet"
-      href="{{ url_for('static', filename='style.css') }}"
     />
+    <style>
+      body {
+        background-color: #f5f7fa;
+        font-family: 'Segoe UI', sans-serif;
+      }
+      .container {
+        max-width: 900px;
+        background: white;
+        padding: 30px;
+        margin-top: 30px;
+        border-radius: 15px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+      }
+      h1 {
+        color: #4CAF50;
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      fieldset {
+        border-left: 4px solid #4CAF50;
+        padding-left: 15px;
+        margin-bottom: 20px;
+      }
+      legend {
+        font-weight: bold;
+        color: #2196F3;
+      }
+      .form-group label {
+        font-weight: 500;
+      }
+      .btn-primary {
+        background-color: #2196F3;
+        border: none;
+      }
+      .result {
+        margin-top: 20px;
+        padding: 15px;
+        background-color: #e7f3fe;
+        border-left: 5px solid #2196F3;
+        border-radius: 8px;
+      }
+      .legend {
+        margin-top: 30px;
+      }
+    </style>
   </head>
   <body>
     <div class="container">
-      <h1>Prediksi Obesitas</h1>
-      <p class="intro">
-        Silakan isi data berikut sesuai instruksi.<br />
-        <b>Isian HARUS sesuai format dataset (cek kode & satuan pada label)</b>
+      <h1>Obesity Level Predictor</h1>
+      <p class="text-muted text-center">
+        Masukkan informasi Anda untuk memprediksi tingkat obesitas berdasarkan data medis dan gaya hidup.
       </p>
       <form id="obesityForm" autocomplete="off">
         <fieldset>
           <legend>Data Kontinu</legend>
-          <div class="form-group">
-            <label>Age — Usia (tahun):</label>
-            <input
-              type="number"
-              step="1"
-              name="Age"
-              placeholder="Contoh: 21"
-              required
-            />
-          </div>
-          <div class="form-group">
-            <label>Height — Tinggi badan (meter):</label>
-            <input
-              type="number"
-              step="0.01"
-              name="Height"
-              placeholder="Contoh: 1.62"
-              required
-            />
-          </div>
-          <div class="form-group">
-            <label>Weight — Berat badan (kg):</label>
-            <input
-              type="number"
-              step="0.1"
-              name="Weight"
-              placeholder="Contoh: 64.0"
-              required
-            />
-          </div>
-          <div class="form-group">
-            <label>NCP — Makan Berat per hari (x kali):</label>
-            <input
-              type="number"
-              name="NCP"
-              min="1"
-              step="1"
-              placeholder="Contoh: 3"
-              required
-            />
-          </div>
-          <div class="form-group">
-            <label>CH2O — Konsumsi air per hari (L):</label>
-            <input
-              type="number"
-              step="0.1"
-              name="CH2O"
-              placeholder="Contoh: 2.0"
-              required
-            />
-          </div>
-          <div class="form-group">
-            <label>FAF — Aktivitas Olahraga (jam/mgg):</label>
-            <input
-              type="number"
-              step="0.1"
-              name="FAF"
-              placeholder="Contoh: 2.0"
-              required
-            />
-          </div>
-          <div class="form-group">
-            <label>TUE — Waktu menggunakan teknologi (jam/hari):</label>
-            <input
-              type="number"
-              step="0.1"
-              name="TUE"
-              placeholder="Contoh: 1.0"
-              required
-            />
+          <div class="row">
+            <div class="col-md-4 mb-3">
+              <label>Usia (tahun):</label>
+              <input type="number" step="1" name="Age" class="form-control" required />
+            </div>
+            <div class="col-md-4 mb-3">
+              <label>Tinggi badan (meter):</label>
+              <input type="number" step="0.01" name="Height" class="form-control" required />
+            </div>
+            <div class="col-md-4 mb-3">
+              <label>Berat badan (kg):</label>
+              <input type="number" step="0.1" name="Weight" class="form-control" required />
+            </div>
+            <div class="col-md-4 mb-3">
+              <label>Makan Berat/hari:</label>
+              <input type="number" name="NCP" min="1" step="1" class="form-control" required />
+            </div>
+            <div class="col-md-4 mb-3">
+              <label>Air/hari (L):</label>
+              <input type="number" step="0.1" name="CH2O" class="form-control" required />
+            </div>
+            <div class="col-md-4 mb-3">
+              <label>Olahraga/minggu (jam):</label>
+              <input type="number" step="0.1" name="FAF" class="form-control" required />
+            </div>
+            <div class="col-md-4 mb-3">
+              <label>Teknologi/hari (jam):</label>
+              <input type="number" step="0.1" name="TUE" class="form-control" required />
+            </div>
           </div>
         </fieldset>
+
         <fieldset>
           <legend>Data Kategorikal</legend>
-          <!-- Lakukan hal yang sama: kelompokkan tiap input ke dalam .form-group -->
-          <div class="form-group">
-            <label>Gender — Jenis Kelamin:</label>
-            <select name="Gender" required>
-              <option value="Male">Laki-laki</option>
-              <option value="Female">Perempuan</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label>FAVC — Sering Makan High-Calorie:</label>
-            <select name="FAVC" required>
-              <option value="yes">Ya</option>
-              <option value="no">Tidak</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label>FCVC — Frekuensi Sayur & Buah:</label>
-            <select name="FCVC" required>
-              <option value="1">1×/hari</option>
-              <option value="2">2×/hari</option>
-              <option value="3">&gt;2×/hari</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label>CAEC — Konsumsi Makanan Berlemak:</label>
-            <select name="CAEC" required>
-              <option value="no">Tidak</option>
-              <option value="Sometimes">Kadang</option>
-              <option value="Frequently">Sering</option>
-              <option value="Always">Selalu</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label>SCC — Memantau asupan kalori:</label>
-            <select name="SCC" required>
-              <option value="yes">Ya</option>
-              <option value="no">Tidak</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label>SMOKE — Kebiasaan Merokok:</label>
-            <select name="SMOKE" required>
-              <option value="yes">Ya</option>
-              <option value="no">Tidak</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label>CALC — Konsumsi Alkohol:</label>
-            <select name="CALC" required>
-              <option value="no">Tidak</option>
-              <option value="Sometimes">Kadang</option>
-              <option value="Frequently">Sering</option>
-              <option value="Always">Selalu</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label
-              >family_history_with_overweight — Riwayat Keluarga
-              Obesitas:</label
-            >
-            <select name="family_history_with_overweight" required>
-              <option value="yes">Ada</option>
-              <option value="no">Tidak</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label>MTRANS — Transportasi yang digunakan:</label>
-            <select name="MTRANS" required>
-              <option value="Walking">Jalan Kaki</option>
-              <option value="Public_Transportation">Angkutan Umum</option>
-              <option value="Bike">Sepeda</option>
-              <option value="Motorbike">Motor</option>
-              <option value="Automobile">Mobil</option>
-            </select>
+          <div class="row">
+            <div class="col-md-4 mb-3">
+              <label>Jenis Kelamin:</label>
+              <select name="Gender" class="form-select" required>
+                <option value="Male">Laki-laki</option>
+                <option value="Female">Perempuan</option>
+              </select>
+            </div>
+            <div class="col-md-4 mb-3">
+              <label>FAVC (High-Calorie Food):</label>
+              <select name="FAVC" class="form-select" required>
+                <option value="yes">Ya</option>
+                <option value="no">Tidak</option>
+              </select>
+            </div>
+            <div class="col-md-4 mb-3">
+              <label>Frekuensi Sayur (FCVC):</label>
+              <select name="FCVC" class="form-select" required>
+                <option value="1">1×/hari</option>
+                <option value="2">2×/hari</option>
+                <option value="3">>2×/hari</option>
+              </select>
+            </div>
+            <div class="col-md-4 mb-3">
+              <label>Konsumsi Lemak (CAEC):</label>
+              <select name="CAEC" class="form-select" required>
+                <option value="no">Tidak</option>
+                <option value="Sometimes">Kadang</option>
+                <option value="Frequently">Sering</option>
+                <option value="Always">Selalu</option>
+              </select>
+            </div>
+            <div class="col-md-4 mb-3">
+              <label>Hitung Kalori (SCC):</label>
+              <select name="SCC" class="form-select" required>
+                <option value="yes">Ya</option>
+                <option value="no">Tidak</option>
+              </select>
+            </div>
+            <div class="col-md-4 mb-3">
+              <label>Merokok (SMOKE):</label>
+              <select name="SMOKE" class="form-select" required>
+                <option value="yes">Ya</option>
+                <option value="no">Tidak</option>
+              </select>
+            </div>
+            <div class="col-md-4 mb-3">
+              <label>Konsumsi Alkohol (CALC):</label>
+              <select name="CALC" class="form-select" required>
+                <option value="no">Tidak</option>
+                <option value="Sometimes">Kadang</option>
+                <option value="Frequently">Sering</option>
+                <option value="Always">Selalu</option>
+              </select>
+            </div>
+            <div class="col-md-4 mb-3">
+              <label>Riwayat Obesitas Keluarga:</label>
+              <select name="family_history_with_overweight" class="form-select" required>
+                <option value="yes">Ada</option>
+                <option value="no">Tidak</option>
+              </select>
+            </div>
+            <div class="col-md-4 mb-3">
+              <label>Transportasi:</label>
+              <select name="MTRANS" class="form-select" required>
+                <option value="Walking">Jalan Kaki</option>
+                <option value="Public_Transportation">Angkutan Umum</option>
+                <option value="Bike">Sepeda</option>
+                <option value="Motorbike">Motor</option>
+                <option value="Automobile">Mobil</option>
+              </select>
+            </div>
           </div>
         </fieldset>
-        <button type="submit">Prediksi Sekarang</button>
+
+        <button type="submit" class="btn btn-primary">Prediksi Sekarang</button>
       </form>
-      <div id="result" class="result"></div>
+
+      <div id="result" class="result mt-3"></div>
+
       <div class="legend">
-        <h3>Keterangan Kode Prediksi</h3>
+        <h5>Kode Prediksi</h5>
         <ul>
           {% for code, label in label_map.items() %}
-          <li><strong>{{ code }}</strong> : {{ label }}</li>
+          <li><strong>{{ code }}</strong>: {{ label }}</li>
           {% endfor %}
         </ul>
       </div>
     </div>
+
     <script>
-      // JavaScript tetap sama
       document.getElementById("obesityForm").addEventListener("submit", (e) => {
         e.preventDefault();
         const formData = new FormData(e.target);
@@ -190,15 +195,12 @@
           .then((r) => r.json())
           .then((d) => {
             if (d.dt_label && d.rf_label && d.knn_label) {
-              let detail =
-                "<b>Decision Tree:</b> " +
-                d.dt_label +
-                "<br>" +
-                "<b>Random Forest:</b> " +
-                d.rf_label +
-                "<br>" +
-                "<b>KNN:</b> " +
-                d.knn_label;
+              let detail = `
+                <h5>Hasil Prediksi</h5>
+                <b>Decision Tree:</b> ${d.dt_label}<br>
+                <b>Random Forest:</b> ${d.rf_label}<br>
+                <b>KNN:</b> ${d.knn_label}
+              `;
               document.getElementById("result").innerHTML = detail;
             } else if (d.error) {
               document.getElementById("result").innerText =
