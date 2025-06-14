@@ -35,7 +35,7 @@ Sebelum memulai proyek, pastikan telah menguasai materi berikut:
 
 ---
 
-### 2. 🛠️ *Pembuatan Model Machine Learning* (I'm Here)
+### 2. 🛠️ *Pembuatan Model Machine Learning* 
 
 * Lakukan EDA dan preprocessing data
 * Tangani missing value, duplikasi, outlier, dan data imbalance
@@ -82,7 +82,7 @@ Sebelum memulai proyek, pastikan telah menguasai materi berikut:
 
 ---
 
-### 6. 🚀 *Deployment*
+### 6. 🚀 *Deployment* (I'm Here)
 
 * Deploy aplikasi ke platform **Render**
 * Buat akun, hubungkan GitHub repository, dan setting environment
