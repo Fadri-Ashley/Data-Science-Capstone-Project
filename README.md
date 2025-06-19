@@ -82,14 +82,14 @@ Sebelum memulai proyek, pastikan telah menguasai materi berikut:
 
 ---
 
-### 6. 🚀 *Deployment* (I'm Here)
+### 6. 🚀 *Deployment* 
 
 * Deploy aplikasi ke platform **Render**
 * Buat akun, hubungkan GitHub repository, dan setting environment
 
 ---
 
-### 7. 🎤 *Presentasi Proyek*
+### 7. 🎤 *Presentasi Proyek* (I'm Here)
 
 * Siapkan slide presentasi
 * Pahami alur data, preprocessing, model, dan deployment
