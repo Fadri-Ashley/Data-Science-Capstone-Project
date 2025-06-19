@@ -18,27 +18,27 @@ all_models = joblib.load(MODEL_PATH)
 
 # Fitur dari form input (sebelum one-hot)
 FORM_FEATURES = [
-    'Age', 'Height', 'Weight', 'CALC', 'FAVC', 'FCVC', 'NCP', 'SCC', 'SMOKE', 'CH2O',
-    'family_history_with_overweight', 'FAF', 'TUE', 'CAEC',
+    'Age', 'Height', 'Weight', 'CALC', 'FAVC', 'FCVC', 'NCP', 'CH2O',
+    'family_history_with_overweight', 'FAF', 'CAEC',
     'Gender', 'MTRANS'
 ]
 
 # Fitur yang digunakan untuk prediksi (harus persis urutan hasil print(X_train.columns))
 USED_FEATURES = [
-    'Age', 'Height', 'Weight', 'CALC', 'FAVC', 'FCVC', 'NCP', 'SCC', 'SMOKE',
-    'CH2O', 'family_history_with_overweight', 'FAF', 'TUE', 'CAEC',
+    'Age', 'Height', 'Weight', 'CALC', 'FAVC', 'FCVC', 'NCP',
+    'CH2O', 'family_history_with_overweight', 'FAF', 'CAEC',
     'Gender_Female', 'Gender_Male',
     'MTRANS_Automobile', 'MTRANS_Bike', 'MTRANS_Motorbike', 'MTRANS_Public_Transportation', 'MTRANS_Walking'
 ]
 
 def convert_input(raw):
     # Numerik
-    for k in ['Age', 'Height', 'Weight', 'CH2O', 'FAF', 'TUE']:
+    for k in ['Age', 'Height', 'Weight', 'CH2O', 'FAF']:
         raw[k] = float(raw[k]) if raw[k] else 0.0
     raw['NCP'] = int(raw['NCP']) if raw['NCP'] else 0
 
     # Binary (yes/no) ke angka
-    for k in ['FAVC', 'SCC', 'SMOKE', 'family_history_with_overweight']:
+    for k in ['FAVC', 'family_history_with_overweight']:
         val = str(raw.get(k, '')).lower()
         raw[k] = 1 if val == 'yes' else 0
 
